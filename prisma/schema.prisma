@@ -1,0 +1,61 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+
+model TrainingPrice {
+  id          String   @id
+  category    String
+  title       String
+  description String?
+  price       Int
+  period      String?
+  color       String?
+  image       String?
+  crmUrl      String?
+  isActive    Boolean  @default(true)
+  orderIndex  Int      @default(0)
+  updatedAt   DateTime @updatedAt
+  createdAt   DateTime @default(now())
+}
+
+model UncomingEvents {
+  id  String @id
+  title String
+  shortDescription String
+  eventDate DateTime
+  endDate DateTime?
+  isInCrm Boolean @default(false)
+  crmUrl String
+  isActive Boolean @default(true)
+  coverImage String?
+}
+
+model PastEvents {
+  id String @id
+  slug String @unique
+  title String
+  eventDate DateTime
+  endDate DateTime?
+  coverImage String
+  shortDescription String
+  content String
+  gallery String[]
+  isFeatured Boolean @default(false)
+}
+
+model Team {
+  id          String   @id @default(cuid())
+  name    String
+  position  String
+  firstImage String
+  lastImage String
+  orderIndex  Int      @default(0)
+  updatedAt   DateTime @updatedAt
+  createdAt   DateTime @default(now())
+}

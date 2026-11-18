@@ -1,0 +1,305 @@
+@import "tailwindcss";
+
+:root {
+  --vh: 1svh;
+}
+
+.h-svh {
+  height: calc(var(--vh, 1svh) * 100);
+}
+
+.min-h-svh {
+  min-height: calc(var(--vh, 1svh) * 100);
+}
+
+.hero-bg-video::-webkit-media-controls,
+.hero-bg-video::-webkit-media-controls-panel,
+.hero-bg-video::-webkit-media-controls-play-button,
+.hero-bg-video::-webkit-media-controls-start-playback-button {
+  display: none !important;
+  -webkit-appearance: none;
+}
+
+@keyframes hero-noise-shift {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  20% {
+    transform: translate3d(-40px, 20px, 0);
+  }
+  40% {
+    transform: translate3d(30px, -30px, 0);
+  }
+  60% {
+    transform: translate3d(-25px, -15px, 0);
+  }
+  80% {
+    transform: translate3d(20px, 35px, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.hero-noise-animated {
+  position: absolute;
+  inset: -60px;
+  background-image: url("/noise.png");
+  background-repeat: repeat;
+  pointer-events: none;
+  animation: hero-noise-shift 0.6s steps(1) infinite;
+}
+
+@theme {
+  --font-geologica: var(--font-geologica);
+  --color-yellow: #e0ec59;
+  --color-red: #e0564a;
+  --color-gray: #3f3d3d;
+  --color-purple: #9e5aa5;
+  --color-orange: #ff991b;
+  --color-blue: #3eb7df;
+}
+
+body {
+  @apply font-geologica bg-white text-gray;
+  overflow-x: clip;
+}
+
+section[id],
+footer[id] {
+  scroll-margin-top: 5rem;
+}
+
+p,
+li {
+  font-family: var(--font-geologica), sans-serif;
+  font-weight: 300;
+  font-size: clamp(16px, 2vw, 20px);
+  line-height: 120%;
+  letter-spacing: 0%;
+}
+h1 {
+  font-family: var(--font-geologica), sans-serif;
+  font-weight: 700;
+  font-size: clamp(40px, 6vw, 120px);
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-transform: uppercase;
+}
+h2 {
+  font-family: var(--font-geologica), sans-serif;
+  font-weight: 700;
+  font-size: clamp(40px, 6vw, 80px);
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-transform: uppercase;
+}
+
+h3 {
+  font-family: var(--font-geologica), sans-serif;
+  font-weight: 700;
+  font-size: clamp(16px, 2vw, 20px);
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-transform: uppercase;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Mobile nav menu — same motion as former GSAP timeline */
+.nb-prelayer,
+.nb-panel {
+  transform: translateX(100%);
+  transition:
+    transform 0.32s cubic-bezier(0.7, 0, 0.84, 0),
+    visibility 0s linear 0.32s;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.nb-prelayers.nb-menu-open .nb-prelayer {
+  transform: translateX(0);
+  visibility: visible;
+  transition:
+    transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    visibility 0s;
+  transition-delay: calc(var(--nb-i, 0) * 0.07s);
+}
+
+.nb-panel.nb-menu-open {
+  transform: translateX(0);
+  visibility: visible;
+  pointer-events: auto;
+  transition:
+    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.15s,
+    visibility 0s;
+}
+
+.nb-item-label {
+  display: inline-block;
+  transform: translateY(140%) rotate(8deg);
+  transition: none;
+}
+
+.nb-panel.nb-menu-open .nb-item-label {
+  transform: translateY(0) rotate(0);
+  transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: calc(0.24s + var(--nb-i, 0) * 0.08s);
+}
+
+/* Team Slider & Cards */
+.team-slider {
+  height: clamp(580px, calc(var(--vh, 1svh) * 50), 820px);
+}
+
+.gallery-section {
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.gallery-section::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.team-mobile-scroller {
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.team-mobile-scroller::-webkit-scrollbar {
+  display: none;
+}
+
+.team-mobile-scroller .team-card {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+.team-card__overlay {
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.85) 0%,
+    rgba(0, 0, 0, 0.35) 35%,
+    rgba(0, 0, 0, 0) 65%
+  );
+  opacity: 0;
+}
+
+.team-card__name {
+  display: flex;
+  flex-direction: column;
+  padding: clamp(16px, 2vw, 32px);
+  color: white;
+  font-size: clamp(18px, 2vw, 28px);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.team-card__position {
+  color: var(--color-yellow);
+  font-size: clamp(12px, 1.2vw, 14px);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1.2;
+  margin-bottom: 4px;
+}
+
+@media (min-width: 768px) {
+  .team-card__img {
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .team-card__img_t {
+    transition:
+      transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 0.5s ease;
+    opacity: 0;
+  }
+
+  .team-card__overlay {
+    transition: opacity 0.4s ease;
+  }
+
+  .team-card__name {
+    transition:
+      opacity 0.4s ease,
+      transform 0.4s ease;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .team-card:hover .team-card__img,
+  .team-card:hover .team-card__img_t {
+    transform: scale(1.06);
+  }
+
+  .team-card:hover .team-card__img_t {
+    opacity: 1;
+  }
+
+  .team-card:hover .team-card__overlay {
+    opacity: 1;
+  }
+
+  .team-card:hover .team-card__name {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 1024px) {
+  .team-card__overlay {
+    opacity: 1;
+  }
+
+  .team-card__name {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (min-width: 1025px) {
+  .team-slider {
+    height: clamp(620px, calc(var(--vh, 1svh) * 75), 800px);
+  }
+}
+
+@media (max-width: 767px) {
+  .team-card__name {
+    padding: 16px;
+    font-size: 18px;
+  }
+}
+
+/* Contact form: prevent white background when browser autofills */
+.contact-form input:-webkit-autofill,
+.contact-form input:-webkit-autofill:hover,
+.contact-form input:-webkit-autofill:focus,
+.contact-form input:-webkit-autofill:active,
+.contact-form textarea:-webkit-autofill,
+.contact-form textarea:-webkit-autofill:hover,
+.contact-form textarea:-webkit-autofill:focus,
+.contact-form textarea:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px #e0ec59 inset !important;
+  box-shadow: 0 0 0 1000px #e0ec59 inset !important;
+  -webkit-text-fill-color: #3f3d3d !important;
+  caret-color: #3f3d3d !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.contact-form input:-moz-autofill,
+.contact-form textarea:-moz-autofill {
+  box-shadow: 0 0 0 1000px #e0ec59 inset !important;
+  filter: none !important;
+}
