@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import cloudinaryLoader from "@/lib/cloudinaryLoader";
+import { isCloudinaryUrl } from "@/lib/cloudinaryLoader";
 
 // -----------------------------------------------------------------------------
 // Responsive slide calculations & custom directional cursor assets
@@ -213,12 +213,12 @@ export default function Team({teamMembers=[]}) {
                 className="team-card relative h-full w-full shrink-0 overflow-hidden"
               >
                 <Image
-                  loader={cloudinaryLoader}
                   src={member.firstImage}
+                  unoptimized={isCloudinaryUrl(member.firstImage)}
                   alt={member.name}
                   fill
                   priority={i === 0}
-                  quality={90}
+                  quality={75}
                   draggable={false}
                   sizes="(max-width: 768px) 150vw, 50vw"
                   className="team-card__img select-none object-cover"
@@ -269,22 +269,22 @@ export default function Team({teamMembers=[]}) {
                 }}
               >
                 <Image
-                  loader={cloudinaryLoader}
                   src={member.firstImage}
+                  unoptimized={isCloudinaryUrl(member.firstImage)}
                   alt={member.name}
                   fill
                   priority={i === 0}
-                  quality={90}
+                  quality={75}
                   draggable={false}
                   sizes="(max-width: 1024px) 50vw, 33vw"
                   className="team-card__img select-none object-cover"
                 />
                 <Image
-                  loader={cloudinaryLoader}
                   src={member.lastImage}
+                  unoptimized={isCloudinaryUrl(member.lastImage)}
                   alt={member.name}
                   fill
-                  quality={90}
+                  quality={75}
                   draggable={false}
                   sizes="(max-width: 1024px) 50vw, 33vw"
                   className="team-card__img_t select-none object-cover"

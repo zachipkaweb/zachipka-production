@@ -73,7 +73,7 @@ export default  function Hero() {
         alt="Скеледром Зачіпка контакти"
         fill
         priority
-        quality={95}
+        quality={80}
         sizes="(max-width: 768px) 200vw, 100vw"
         className="object-cover object-center pointer-events-none"
       />

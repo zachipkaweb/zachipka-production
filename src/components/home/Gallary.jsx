@@ -90,7 +90,7 @@ export default function Gallery() {
               src={img.src}
               alt={img.alt}
               fill
-              quality={85}
+              quality={75}
               sizes="(max-width: 768px) 90vw, (max-width: 1024px) 80vw, 50vw"
               className="object-cover"
               loading={idx < 2 ? "eager" : "lazy"}

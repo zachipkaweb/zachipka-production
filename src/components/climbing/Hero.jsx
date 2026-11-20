@@ -10,7 +10,7 @@ export default function Hero() {
         alt="Скеледром Зачіпка"
         fill
         priority
-        quality={95}
+        quality={80}
         sizes="(max-width: 768px) 250vw, 100vw"
       />
       <div className="pointer-events-none absolute inset-0 overflow-hidden">

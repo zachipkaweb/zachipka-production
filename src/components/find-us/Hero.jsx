@@ -9,7 +9,7 @@ export default function Hero() {
           alt="Скелелазіння"
           fill
           priority
-          quality={95}
+          quality={80}
           sizes="(max-width: 768px) 200vw, 100vw"
           className="object-cover object-center"
         />
@@ -91,12 +91,14 @@ export default function Hero() {
           <div className="w-full container mx-auto h-[calc(var(--vh,1svh)*80)] min-h-137.5 relative overflow-hidden bg-black">
             <video
               className="h-full w-full object-cover"
-              src="/videos/hero.mp4"
               poster="/images/hero/hero-poster.webp"
               controls
               playsInline
               preload="metadata"
-            />
+            >
+              <source src="/videos/hero.webm" type="video/webm" />
+              <source src="/videos/hero.mp4" type="video/mp4" />
+            </video>
           </div>
         </div>
       </div>

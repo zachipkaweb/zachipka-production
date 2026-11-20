@@ -9,7 +9,7 @@ export default function Hero() {
         alt="Тренування в скеледромі"
         fill
         priority
-        quality={95}
+        quality={80}
         sizes="(max-width: 768px) 250vw, 100vw"
       />
       <div className="absolute inset-0 bg-black/35" />

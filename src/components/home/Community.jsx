@@ -73,7 +73,7 @@ export default function Community() {
                 src={card.image}
                 alt={card.title}
                 fill
-                quality={90}
+                quality={75}
                 sizes="(max-width: 640px) 150vw, (max-width: 1024px) 75vw, 50vw"
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
               />

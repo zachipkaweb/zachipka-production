@@ -29,7 +29,7 @@ export default function About_climbing() {
           src="/images/hero/climbing.webp"
           alt="Про скелелазіння"
           fill
-          quality={95}
+          quality={80}
           placeholder="blur"
           blurDataURL={BLUR_DATA_URLS.homeClimbing}
           sizes="(max-width: 1023px) 200vw, 61vw"

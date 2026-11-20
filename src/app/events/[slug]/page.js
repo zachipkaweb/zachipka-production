@@ -8,7 +8,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getCachedPastEventBySlug } from "@/lib/cachedData";
 import { formatEventDate } from "@/lib/dates";
-import { isCloudinaryUrl, optimizeCloudinaryUrl } from "@/lib/cloudinaryLoader";
+import { isCloudinaryUrl } from "@/lib/cloudinaryLoader";
 import { DEFAULT_OG_IMAGES, DEFAULT_TWITTER_IMAGES } from "../../shared-metadata";
 
 export async function generateMetadata({ params }) {
@@ -85,12 +85,12 @@ export default async function PastEventDetailsPage({ params }) {
           <div className="md:col-span-5 lg:col-span-4 w-full max-w-md mx-auto md:mx-0">
             <div className="relative aspect-3/4 w-full overflow-hidden bg-black">
               <Image
-                src={optimizeCloudinaryUrl(event.coverImage, 1200)}
+                src={event.coverImage}
                 unoptimized={isCloudinaryUrl(event.coverImage)}
                 alt={event.title}
                 fill
                 priority
-                quality={90}
+                quality={80}
                 sizes="(max-width: 768px) 150vw, 500px"
                 className="object-cover"
               />
@@ -131,11 +131,11 @@ export default async function PastEventDetailsPage({ params }) {
                 className="relative w-full h-[50svh] md:h-[65svh] lg:h-[70svh] overflow-hidden bg-black"
               >
                 <Image
-                  src={optimizeCloudinaryUrl(imgUrl, 1600)}
+                  src={imgUrl}
                   unoptimized={isCloudinaryUrl(imgUrl)}
                   alt={`${event.title} фото ${idx + 1}`}
                   fill
-                  quality={90}
+                  quality={75}
                   sizes="(max-width: 768px) 150vw, 60vw"
                   className="object-cover"
                 />

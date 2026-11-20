@@ -7,7 +7,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
 import Link from "next/link";
 import { formatEventDate } from "@/lib/dates";
-import cloudinaryLoader from "@/lib/cloudinaryLoader";
+import { isCloudinaryUrl } from "@/lib/cloudinaryLoader";
 import { FaStar } from 'react-icons/fa';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
@@ -99,11 +99,11 @@ export default function PastEvents({ pastEvents = [] }) {
               className="block w-[85vw] min-[481px]:w-[75vw] md:w-[60vw] lg:w-[40vw] relative h-full shrink-0 overflow-hidden cursor-pointer bg-black [transform:translateZ(0)]"
             >
               <Image
-                loader={cloudinaryLoader}
                 src={event.coverImage}
+                unoptimized={isCloudinaryUrl(event.coverImage)}
                 alt={event.title}
                 fill
-                quality={85}
+                quality={75}
                 sizes="(max-width: 768px) 90vw, (max-width: 1024px) 60vw, 40vw"
                 className="object-cover"
                 loading="eager"

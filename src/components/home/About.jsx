@@ -9,7 +9,7 @@ export default function About() {
         src="/images/hero/about.webp"
         alt="Про скеледром"
         fill
-        quality={95}
+        quality={80}
         placeholder="blur"
         blurDataURL={BLUR_DATA_URLS.homeAbout}
         sizes="(max-width: 768px) 250vw, 100vw"

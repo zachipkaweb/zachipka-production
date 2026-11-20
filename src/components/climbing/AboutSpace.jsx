@@ -14,7 +14,7 @@ export default function AboutSpace() {
         src="/images/climbing/AboutSpace-hero.webp" 
         alt="Простір скеледрому Зачіпка" 
         fill
-        quality={95}
+        quality={80}
         placeholder="blur"
         blurDataURL={BLUR_DATA_URLS.aboutSpaceHero}
         sizes="(max-width: 768px) 250vw, 100vw"
@@ -49,7 +49,7 @@ export default function AboutSpace() {
                   src={zone.img} 
                   alt={`Зона для ${zone.name}`} 
                   fill 
-                  quality={90}
+                  quality={75}
                   sizes="(max-width: 768px) 150vw, 50vw"
                   className="object-cover" 
                 />

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Button from "../ui/Button";
-import { isCloudinaryUrl, optimizeCloudinaryUrl } from "@/lib/cloudinaryLoader";
+import { isCloudinaryUrl } from "@/lib/cloudinaryLoader";
 
 const PALETTE_HEX = {
   orange: "#ff991b",
@@ -133,11 +133,11 @@ export default function Sections({ sectionsData = [] }) {
 
                 <div className="w-full md:-ms-1 md:w-[30%] lg:w-[38%] relative h-60 sm:h-70 md:h-78.75">
                   <Image
-                    src={optimizeCloudinaryUrl(imageSrc, 1200)}
+                    src={imageSrc}
                     unoptimized={isCloudinaryUrl(imageSrc)}
                     alt={sec.title}
                     fill
-                    quality={90}
+                    quality={75}
                     sizes="(max-width: 768px) 150vw, 50vw"
                     className="object-cover"
                   />

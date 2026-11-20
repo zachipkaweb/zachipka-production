@@ -9,7 +9,7 @@ export default function Certificate() {
         src="/images/training/Certificate-hero.webp"
         alt="Подарункові сертифікати"
         fill
-        quality={95}
+        quality={80}
         placeholder="blur"
         blurDataURL={BLUR_DATA_URLS.certificateHero}
         sizes="(max-width: 768px) 250vw, 100vw"

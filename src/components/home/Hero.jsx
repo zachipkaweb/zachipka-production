@@ -128,13 +128,15 @@ export default function Hero() {
         className={`hero-bg-video pointer-events-none absolute inset-0 h-full w-full object-cover transition-opacity duration-500 ${
           isVideoPlaying ? "opacity-100" : "opacity-0"
         }`}
-        src="/videos/hero.mp4"
         autoPlay
         muted
         loop
         playsInline
         preload="metadata"
-      />
+      >
+        <source src="/videos/hero.webm" type="video/webm" />
+        <source src="/videos/hero.mp4" type="video/mp4" />
+      </video>
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-78 overflow-hidden mask-[linear-gradient(to_top,black,transparent)]">
         <div className="hero-noise-animated opacity-10" />
       </div>

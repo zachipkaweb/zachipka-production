@@ -9,7 +9,7 @@ export default function Moonboard() {
         src="/images/climbing/Moonboard-hero.webp" 
         alt="Мунборд тренувальна зона" 
         fill
-        quality={95}
+        quality={80}
         placeholder="blur"
         blurDataURL={BLUR_DATA_URLS.moonboardHero}
         sizes="(max-width: 768px) 250vw, 100vw"

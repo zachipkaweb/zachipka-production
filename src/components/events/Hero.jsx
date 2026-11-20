@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Button from "../ui/Button";
-import { isCloudinaryUrl, optimizeCloudinaryUrl } from "@/lib/cloudinaryLoader";
+import { isCloudinaryUrl } from "@/lib/cloudinaryLoader";
 
 export default function Hero({ featuredEvent, isUpcoming }) {
   return (
@@ -10,7 +10,7 @@ export default function Hero({ featuredEvent, isUpcoming }) {
         alt="Події в Зачіпці"
         fill
         priority
-        quality={95}
+        quality={80}
         sizes="(max-width: 768px) 250vw, 100vw"
         className="object-cover"
       />
@@ -35,25 +35,25 @@ export default function Hero({ featuredEvent, isUpcoming }) {
           <div className="w-full hidden md:block max-w-85 sm:max-w-95 lg:max-w-100 shrink-0 relative aspect-3/4 overflow-hidden shadow-2xl self-start lg:self-end">
             {isUpcoming ? (
               <Image
-              src={optimizeCloudinaryUrl(featuredEvent.coverImage || "/images/events/events-up.webp", 1000)}
-              unoptimized={isCloudinaryUrl(featuredEvent.coverImage)}
-            alt={featuredEvent.title}
-              fill
-              quality={90}
-              sizes="(max-width: 1024px) 150vw, 500px"
-              className="object-cover"
-            />
+                src={featuredEvent.coverImage || "/images/events/events-up.webp"}
+                unoptimized={isCloudinaryUrl(featuredEvent.coverImage)}
+                alt={featuredEvent.title}
+                fill
+                quality={75}
+                sizes="(max-width: 1024px) 150vw, 500px"
+                className="object-cover"
+              />
             ) 
             : (
               <Image
-              src={optimizeCloudinaryUrl(featuredEvent.coverImage, 1000)}
-              unoptimized={isCloudinaryUrl(featuredEvent.coverImage)}
-              alt={featuredEvent.title}
-              fill
-              quality={90}
-              sizes="(max-width: 1024px) 150vw, 500px"
-              className="object-cover"
-            />
+                src={featuredEvent.coverImage}
+                unoptimized={isCloudinaryUrl(featuredEvent.coverImage)}
+                alt={featuredEvent.title}
+                fill
+                quality={75}
+                sizes="(max-width: 1024px) 150vw, 500px"
+                className="object-cover"
+              />
             )}
             
             <div className="absolute inset-0 bg-linear-to-t from-black/95 via-black/40 to-transparent" />

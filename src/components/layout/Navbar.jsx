@@ -285,7 +285,7 @@ export default function Navbar() {
               src={img.src}
               alt=""
               fill
-              quality={95}
+              quality={80}
               sizes={img.sizes}
               loading="eager"
               onLoad={() => setPreloadedCount((c) => c + 1)}
